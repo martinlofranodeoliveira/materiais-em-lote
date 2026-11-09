@@ -1,0 +1,55 @@
+"""Demonstração autoral, sem arquivos, relógio ou serviços externos."""
+
+from .core import Project, validate_project
+
+
+def demo_mapping() -> dict:
+    """Retorna um novo documento JSON independente em cada chamada."""
+    return {
+        "version": 1,
+        "title": "Uma oficina, dois pedidos",
+        "items": [
+            {
+                "id": "kit", "name": "Kit de oficina", "unit": "un", "kind": "make", "batch": "2",
+                "components": [
+                    {"item": "painel", "quantity": "3"},
+                    {"item": "suporte", "quantity": "4"},
+                    {"item": "tinta", "quantity": "0.5"},
+                ],
+            },
+            {
+                "id": "expositor", "name": "Expositor de bancada", "unit": "un", "kind": "make", "batch": "1",
+                "components": [
+                    {"item": "painel", "quantity": "2"},
+                    {"item": "suporte", "quantity": "2"},
+                    {"item": "tinta", "quantity": "0.2"},
+                ],
+            },
+            {
+                "id": "painel", "name": "Painel preparado", "unit": "un", "kind": "make", "batch": "3",
+                "components": [
+                    {"item": "chapa", "quantity": "1"},
+                    {"item": "tinta", "quantity": "0.3"},
+                ],
+            },
+            {"id": "suporte", "name": "Suporte", "unit": "un", "kind": "buy", "pack": "4"},
+            {"id": "chapa", "name": "Chapa", "unit": "un", "kind": "buy", "pack": "2"},
+            {"id": "tinta", "name": "Tinta", "unit": "l", "kind": "buy", "pack": "1"},
+        ],
+        "demands": [
+            {"id": "pedido-kit", "item": "kit", "quantity": "3"},
+            {"id": "pedido-expositor", "item": "expositor", "quantity": "2"},
+        ],
+        "stock": [
+            {"item": "kit", "quantity": "1"},
+            {"item": "painel", "quantity": "2"},
+            {"item": "suporte", "quantity": "1"},
+            {"item": "chapa", "quantity": "1"},
+            {"item": "tinta", "quantity": "0.3"},
+        ],
+    }
+
+
+def demo_project() -> Project:
+    """Retorna o projeto validado e imutável da demonstração."""
+    return validate_project(demo_mapping())

@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "title": "=Oficina <A&B> – ação",
+  "items": [
+    {
+      "id": "igual",
+      "name": "=1+1",
+      "unit": "un",
+      "kind": "buy",
+      "pack": "1"
+    },
+    {
+      "id": "mais",
+      "name": "+SUM(A1:A2)",
+      "unit": "un",
+      "kind": "buy",
+      "pack": "2"
+    },
+    {
+      "id": "menos",
+      "name": "-2+3",
+      "unit": "un",
+      "kind": "buy",
+      "pack": "1"
+    },
+    {
+      "id": "arroba",
+      "name": "@SUM(A1:A2)",
+      "unit": "un",
+      "kind": "buy",
+      "pack": "1"
+    },
+    {
+      "id": "xml",
+      "name": "Aço <&> \"ação\" 'ç'",
+      "unit": "un",
+      "kind": "make",
+      "batch": "3",
+      "components": [
+        {
+          "item": "igual",
+          "quantity": "1"
+        }
+      ]
+    },
+    {
+      "id": "item_x0041_",
+      "name": "_x0041_",
+      "unit": "un",
+      "kind": "buy",
+      "pack": "1"
+    },
+    {
+      "id": "escape-cr",
+      "name": "_x000D_",
+      "unit": "un",
+      "kind": "buy",
+      "pack": "1"
+    },
+    {
+      "id": "escape-protegido",
+      "name": "_x005F_x0041_",
+      "unit": "un",
+      "kind": "buy",
+      "pack": "1"
+    },
+    {
+      "id": "escape-adjacente",
+      "name": "_x0041__x000D_",
+      "unit": "un",
+      "kind": "buy",
+      "pack": "1"
+    },
+    {
+      "id": "escape-sobreposto",
+      "name": "_x0041_x000D_",
+      "unit": "un",
+      "kind": "buy",
+      "pack": "1"
+    },
+    {
+      "id": "escape-utf16",
+      "name": "_xD83D__xDE00_",
+      "unit": "un",
+      "kind": "buy",
+      "pack": "1"
+    }
+  ],
+  "demands": [
+    {
+      "id": "pedido-xml",
+      "item": "xml",
+      "quantity": "1"
+    },
+    {
+      "id": "pedido-mais",
+      "item": "mais",
+      "quantity": "0.1"
+    },
+    {
+      "id": "pedido-menos",
+      "item": "menos",
+      "quantity": "1"
+    },
+    {
+      "id": "pedido-arroba",
+      "item": "arroba",
+      "quantity": "1"
+    },
+    {
+      "id": "pedido-item_x0041_",
+      "item": "item_x0041_",
+      "quantity": "1"
+    },
+    {
+      "id": "pedido-escape-cr",
+      "item": "escape-cr",
+      "quantity": "1"
+    },
+    {
+      "id": "pedido-escape-protegido",
+      "item": "escape-protegido",
+      "quantity": "1"
+    },
+    {
+      "id": "pedido-escape-adjacente",
+      "item": "escape-adjacente",
+      "quantity": "1"
+    },
+    {
+      "id": "pedido-escape-sobreposto",
+      "item": "escape-sobreposto",
+      "quantity": "1"
+    },
+    {
+      "id": "pedido-escape-utf16",
+      "item": "escape-utf16",
+      "quantity": "1"
+    }
+  ],
+  "stock": []
+}

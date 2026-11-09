@@ -1,0 +1,314 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "/usr/bin/unshare",
+        "--user",
+        "--map-root-user",
+        "--net",
+        "--",
+        "/usr/lib/libreoffice/program/soffice",
+        "--version"
+      ],
+      "returnCode": 0,
+      "stderr": "",
+      "stdout": "LibreOffice 26.2.6.3 620(Build:3)\n\n"
+    },
+    {
+      "argv": [
+        "/usr/bin/unshare",
+        "--user",
+        "--map-root-user",
+        "--net",
+        "--",
+        "/usr/lib/libreoffice/program/soffice",
+        "-env:UserInstallation=file:///tmp/materiais-interop-bzrafyvt/profile",
+        "--headless",
+        "--invisible",
+        "--norestore",
+        "--nodefault",
+        "--nolockcheck",
+        "--nofirststartwizard",
+        "--convert-to",
+        "ods",
+        "--outdir",
+        "/tmp/materiais-interop-bzrafyvt/converted-demo-import",
+        "/tmp/materiais-interop-bzrafyvt/demo-original.xlsx"
+      ],
+      "returnCode": 0,
+      "stderr": "",
+      "stdout": "convert /tmp/materiais-interop-bzrafyvt/demo-original.xlsx as a Calc document -> /tmp/materiais-interop-bzrafyvt/converted-demo-import/demo-original.ods using filter : calc8\n"
+    },
+    {
+      "argv": [
+        "/usr/bin/unshare",
+        "--user",
+        "--map-root-user",
+        "--net",
+        "--",
+        "/usr/lib/libreoffice/program/soffice",
+        "-env:UserInstallation=file:///tmp/materiais-interop-bzrafyvt/profile",
+        "--headless",
+        "--invisible",
+        "--norestore",
+        "--nodefault",
+        "--nolockcheck",
+        "--nofirststartwizard",
+        "--convert-to",
+        "ods",
+        "--outdir",
+        "/tmp/materiais-interop-bzrafyvt/converted-text-import",
+        "/tmp/materiais-interop-bzrafyvt/text-original.xlsx"
+      ],
+      "returnCode": 0,
+      "stderr": "",
+      "stdout": "convert /tmp/materiais-interop-bzrafyvt/text-original.xlsx as a Calc document -> /tmp/materiais-interop-bzrafyvt/converted-text-import/text-original.ods using filter : calc8\n"
+    },
+    {
+      "argv": [
+        "/usr/bin/unshare",
+        "--user",
+        "--map-root-user",
+        "--net",
+        "--",
+        "/usr/lib/libreoffice/program/soffice",
+        "-env:UserInstallation=file:///tmp/materiais-interop-bzrafyvt/profile",
+        "--headless",
+        "--invisible",
+        "--norestore",
+        "--nodefault",
+        "--nolockcheck",
+        "--nofirststartwizard",
+        "--convert-to",
+        "xlsx:Calc MS Excel 2007 XML",
+        "--outdir",
+        "/tmp/materiais-interop-bzrafyvt/converted-demo",
+        "/tmp/materiais-interop-bzrafyvt/demo-original.xlsx"
+      ],
+      "returnCode": 0,
+      "stderr": "",
+      "stdout": "convert /tmp/materiais-interop-bzrafyvt/demo-original.xlsx as a Calc document -> /tmp/materiais-interop-bzrafyvt/converted-demo/demo-original.xlsx using filter : Calc MS Excel 2007 XML\n"
+    },
+    {
+      "argv": [
+        "/usr/bin/unshare",
+        "--user",
+        "--map-root-user",
+        "--net",
+        "--",
+        "/usr/lib/libreoffice/program/soffice",
+        "-env:UserInstallation=file:///tmp/materiais-interop-bzrafyvt/profile",
+        "--headless",
+        "--invisible",
+        "--norestore",
+        "--nodefault",
+        "--nolockcheck",
+        "--nofirststartwizard",
+        "--convert-to",
+        "xlsx:Calc MS Excel 2007 XML",
+        "--outdir",
+        "/tmp/materiais-interop-bzrafyvt/converted-text",
+        "/tmp/materiais-interop-bzrafyvt/text-original.xlsx"
+      ],
+      "returnCode": 0,
+      "stderr": "",
+      "stdout": "convert /tmp/materiais-interop-bzrafyvt/text-original.xlsx as a Calc document -> /tmp/materiais-interop-bzrafyvt/converted-text/text-original.xlsx using filter : Calc MS Excel 2007 XML\n"
+    },
+    {
+      "argv": [
+        "/usr/bin/unshare",
+        "--user",
+        "--map-root-user",
+        "--net",
+        "--",
+        "/usr/lib/libreoffice/program/soffice",
+        "-env:UserInstallation=file:///tmp/materiais-interop-bzrafyvt/profile",
+        "--headless",
+        "--invisible",
+        "--norestore",
+        "--nodefault",
+        "--nolockcheck",
+        "--nofirststartwizard",
+        "--convert-to",
+        "ods",
+        "--outdir",
+        "/tmp/materiais-interop-bzrafyvt/converted-text-reopened",
+        "/tmp/materiais-interop-bzrafyvt/text-libreoffice.xlsx"
+      ],
+      "returnCode": 0,
+      "stderr": "",
+      "stdout": "convert /tmp/materiais-interop-bzrafyvt/text-libreoffice.xlsx as a Calc document -> /tmp/materiais-interop-bzrafyvt/converted-text-reopened/text-libreoffice.ods using filter : calc8\n"
+    },
+    {
+      "argv": [
+        "/usr/bin/unshare",
+        "--user",
+        "--map-root-user",
+        "--net",
+        "--",
+        "/usr/lib/libreoffice/program/soffice",
+        "-env:UserInstallation=file:///tmp/materiais-interop-bzrafyvt/profile",
+        "--headless",
+        "--invisible",
+        "--norestore",
+        "--nodefault",
+        "--nolockcheck",
+        "--nofirststartwizard",
+        "--convert-to",
+        "xlsx:Calc MS Excel 2007 XML",
+        "--outdir",
+        "/tmp/materiais-interop-bzrafyvt/converted-audit",
+        "/tmp/materiais-interop-bzrafyvt/audit-source.xlsx"
+      ],
+      "returnCode": 0,
+      "stderr": "",
+      "stdout": "convert /tmp/materiais-interop-bzrafyvt/audit-source.xlsx as a Calc document -> /tmp/materiais-interop-bzrafyvt/converted-audit/audit-source.xlsx using filter : Calc MS Excel 2007 XML\n"
+    }
+  ],
+  "files": {
+    "audit-libreoffice.xlsx": {
+      "sha256": "4874931397c5a698391fd10c84d8f186c689c6e0af0980a1043fb5293f80f36e",
+      "size": 10760
+    },
+    "audit-source.xlsx": {
+      "sha256": "79ce6ba02fb6c3be768b9fa8f50cc51275f05ece50d88e8bb0ca66ae3d9d2757",
+      "size": 8189
+    },
+    "demo-import.ods": {
+      "sha256": "0be7f83afeda2bdc1e6bc0ade675e32f880a8f44e970748d0706e40a15f629ae",
+      "size": 18901
+    },
+    "demo-libreoffice.xlsx": {
+      "sha256": "fc057b1b61d055c96518ad7dd9905f244da23f85c95d0b924bb76da483b6337e",
+      "size": 14439
+    },
+    "demo-original.xlsx": {
+      "sha256": "49c2c4e026feca1db9fcc7c704438609ab5732b6fbc832e9954814bd8e65464b",
+      "size": 8936
+    },
+    "demo.zip": {
+      "sha256": "18535ed0b4d7ecccb0541aae9a51874dd2fec387dc4ae2e4c68b52a586107c8c",
+      "size": 11721
+    },
+    "text-import.ods": {
+      "sha256": "57ce354de673bbe077c590dc3a3931e554a2edfaf5c0d002e4b7af1b3838cf3a",
+      "size": 26794
+    },
+    "text-libreoffice.xlsx": {
+      "sha256": "26e5c099ecba0bbe6a2f1464c3c010ea4729abd4bea0217a528cb1986f3ca626",
+      "size": 14902
+    },
+    "text-original.xlsx": {
+      "sha256": "80db53bb57c08a9f81ca8f5bc36098dfb3fc47ff1a7bf2b72d2ee309fc69bb80",
+      "size": 9408
+    },
+    "text-reopened.ods": {
+      "sha256": "2170494f46706f57df98c1010180d4ff711c4d2626462e910a9bfc5031e1df3c",
+      "size": 25882
+    },
+    "text.zip": {
+      "sha256": "c35cc973b08f8d677d44e11572a8b3417fa78fb505df727ab17b4d8d9548081d",
+      "size": 12515
+    }
+  },
+  "isolation": {
+    "existingUserProfileRead": false,
+    "externalWorkbookRelationshipsRejected": true,
+    "freshConversionDirectories": true,
+    "freshTemporaryProfile": true,
+    "macrosDisabledInTemporaryProfile": true,
+    "networkNamespace": "unshare --user --map-root-user --net",
+    "networkRequested": false,
+    "osNetworkSandbox": true,
+    "privateHomeAndXdg": true
+  },
+  "kind": "actual-libreoffice-execution",
+  "knownExportLimitationPermitted": true,
+  "libreofficeVersion": "LibreOffice 26.2.6.3 620(Build:3)",
+  "results": {
+    "audit": {
+      "absoluteTolerance": "1E-12",
+      "expectedValues": "independently authored literals",
+      "formulaCachesChecked": 72,
+      "scenarios": 3
+    },
+    "demoBundle": {
+      "bundleSHA256": "18535ed0b4d7ecccb0541aae9a51874dd2fec387dc4ae2e4c68b52a586107c8c",
+      "demands": 2,
+      "edges": 8,
+      "items": 6,
+      "manualDemo": true,
+      "origins": 10,
+      "status": "ok"
+    },
+    "initialImports": {
+      "demo": {
+        "cellsCompared": 171,
+        "equal": true,
+        "sheets": 4
+      },
+      "text": {
+        "cellsCompared": 243,
+        "equal": true,
+        "sheets": 4
+      }
+    },
+    "staticRoundtrips": {
+      "demo": {
+        "cellsCompared": 171,
+        "differences": [],
+        "equal": true,
+        "sheets": 4
+      },
+      "text": {
+        "cellsCompared": 243,
+        "differences": [
+          {
+            "actual": [
+              "text",
+              "_x0041_",
+              null
+            ],
+            "cell": "B5",
+            "expected": [
+              "text",
+              "_x005F_x0041_",
+              null
+            ],
+            "sheet": "Plano"
+          },
+          {
+            "actual": [
+              "text",
+              "_x0041\r",
+              null
+            ],
+            "cell": "B6",
+            "expected": [
+              "text",
+              "_x0041_x000D_",
+              null
+            ],
+            "sheet": "Plano"
+          }
+        ],
+        "equal": false,
+        "sheets": 4
+      }
+    },
+    "textBundle": {
+      "bundleSHA256": "c35cc973b08f8d677d44e11572a8b3417fa78fb505df727ab17b4d8d9548081d",
+      "demands": 10,
+      "edges": 1,
+      "items": 11,
+      "manualDemo": false,
+      "origins": 11,
+      "status": "ok"
+    },
+    "textReopenedConfirmed": true,
+    "textRoundtripExact": false
+  },
+  "scope": "Initial XLSX import equality across all four sheets of both reports; exact demo XLSX roundtrip; explicit text XLSX export/reopen comparison with two known literal losses allowed only by flag; 72 independently expected formula caches. No general Excel arithmetic or third-party save guarantee. Linux user/network namespaces isolate the consumer.",
+  "status": "completed-with-consumer-limitation",
+  "version": 1
+}

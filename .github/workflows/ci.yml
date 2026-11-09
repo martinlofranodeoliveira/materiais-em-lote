@@ -1,0 +1,91 @@
+name: Testes e distribuição
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  python:
+    name: Python ${{ matrix.python }} em ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {os: ubuntu-latest, python: '3.11'}
+          - {os: ubuntu-latest, python: '3.12'}
+          - {os: ubuntu-latest, python: '3.13'}
+          - {os: ubuntu-latest, python: '3.14'}
+          - {os: windows-latest, python: '3.14'}
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - name: Obter o código
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6; SHA verificado
+      - name: Preparar Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6; SHA verificado
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Instalar pacote e ferramenta de build fixada
+        run: python -m pip install . build==1.6.1
+      - name: Testar contrato, relatórios, falhas e leitores independentes
+        run: python -m unittest discover -s tests -v
+      - name: Conferir evidência versionada sem simular consumidor externo
+        run: python tools/verify_libreoffice.py --check-fixtures
+      - name: Construir wheel e sdist
+        run: python -m build
+      - name: Conferir listas fechadas, metadados, licenças e RECORD
+        run: python scripts/check_distribution.py --dist dist
+      - name: Instalar wheel fora da fonte, executar CLI e leitor independente
+        run: python scripts/check_distribution.py --install dist/materiais_em_lote-1.0.0-py3-none-any.whl
+      - name: Instalar sdist fora da fonte, executar CLI e preservar destino existente
+        run: python scripts/check_distribution.py --install dist/materiais_em_lote-1.0.0.tar.gz
+
+  libreoffice:
+    name: LibreOffice real e auditoria independente
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - name: Obter o código
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6; SHA verificado
+      - name: Preparar Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6; SHA verificado
+        with:
+          python-version: '3.14'
+      - name: Instalar explicitamente o consumidor externo de QA
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libreoffice-calc
+      - name: Preparar isolamento de rede do consumidor externo
+        run: unshare --user --map-root-user --net -- true
+      - name: Instalar a CLI
+        run: python -m pip install .
+      - name: Gerar os bundles pela CLI instalada
+        run: |
+          mkdir -p local
+          materiais-em-lote exemplo --saida local/exemplo-ci.zip
+          materiais-em-lote planejar fixtures/interop/text-project.json --saida local/texto-ci.zip
+      - name: Conferir os bundles com o leitor stdlib independente
+        run: |
+          python tools/check_bundle.py local/exemplo-ci.zip --demo
+          python tools/check_bundle.py local/texto-ci.zip
+      - name: Conferir importação, registrar limitação de reexportação e recalcular auditoria
+        run: >-
+          python tools/verify_libreoffice.py
+          --bundle local/exemplo-ci.zip
+          --text-bundle local/texto-ci.zip
+          --output-dir local/libreoffice-ci
+          --libreoffice /usr/bin/libreoffice
+          --record-known-export-limitation
+      - name: Conferir a evidência pública versionada
+        run: python tools/verify_libreoffice.py --check-fixtures

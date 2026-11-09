@@ -1,0 +1,21 @@
+include README.md LICENSE THIRD-PARTY-NOTICES.md CONTRACT.md PRODUCT.md CONTRIBUTING.md SECURITY.md
+include pyproject.toml MANIFEST.in .gitignore .gitattributes .editorconfig
+recursive-include src/materiais_em_lote *.py
+recursive-include tests *.py
+recursive-include scripts *.py
+recursive-include tools *.py
+recursive-include docs *.md
+recursive-include fixtures *.json
+include fixtures/interop/demo.zip fixtures/interop/text.zip
+include fixtures/interop/demo-original.xlsx fixtures/interop/demo-libreoffice.xlsx
+include fixtures/interop/text-original.xlsx fixtures/interop/text-libreoffice.xlsx
+include fixtures/interop/audit-source.xlsx fixtures/interop/audit-libreoffice.xlsx
+include fixtures/interop/demo-import.ods fixtures/interop/text-import.ods fixtures/interop/text-reopened.ods
+include .github/workflows/ci.yml
+prune local
+prune dist
+prune build
+prune .venv
+prune .git
+prune .openai
+global-exclude *.py[cod] __pycache__ .env .env.*
